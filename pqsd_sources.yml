@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: pqsd
+    database: stock_db
+    schema: public
+    tables:
+      - name: stock_data_parquet
+        columns:
+          - name: open
+            tests:
+              - not_null
+              - dbt_utils.expression_is_true:
+                  expression: "> 0"
+          - name: high
+            tests:
+              - not_null
+              - dbt_utils.expression_is_true:
+                  expression: "> 0"
+          - name: low
+            tests:
+              - not_null
+              - dbt_utils.expression_is_true:
+                  expression: "> 0"
+          - name: close
+            tests:
+              - not_null
+              - dbt_utils.expression_is_true:
+                  expression: "> 0"
+          - name: volume
+            tests:
+              - not_null
+              - dbt_utils.expression_is_true:
+                  expression: "> 0"

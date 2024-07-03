@@ -1,0 +1,7 @@
+models:
+  - name: fct_pqsd
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
